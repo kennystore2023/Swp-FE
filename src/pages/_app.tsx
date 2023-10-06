@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }: any) {
     // 2. Use at the root of your app
     <Provider store={store}>
       <NextSeo
-        title="TiemHommie"
+        title="Kenny's bookstore"
         description="Decoration and Gift"
         openGraph={{
           images: [

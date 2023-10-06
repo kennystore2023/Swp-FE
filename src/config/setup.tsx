@@ -1,5 +1,5 @@
 export const setup = {
-  name: "TiemHommie",
+  name: "KennyBookStore",
   border: "#3e5962",
   inside: "#cf5b5b",
   color: "white",
