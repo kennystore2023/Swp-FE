@@ -64,11 +64,11 @@ export default function SearchBox() {
                 borderRadius: "1rem",
               },
               "& .MuiOutlinedInput-notchedOutline": {
-                border: "1px solid #FF9B9B",
+                border: "1px solid #3e5962",
                 borderRadius: "1rem",
               },
               "&:hover .MuiOutlinedInput-notchedOutline": {
-                border: "2px solid #FF9B9B !important",
+                border: "2px solid #3e5962 !important",
               },
               width: "100%",
             }}

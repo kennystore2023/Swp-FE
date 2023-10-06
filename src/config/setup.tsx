@@ -1,13 +1,13 @@
 export const setup = {
   name: "TiemHommie",
-  border: "#FF9B9B",
+  border: "#3e5962",
   inside: "#cf5b5b",
   color: "white",
   banner: "/assets/images/banner.jpg",
   error: "rgb(211, 47, 47)",
   success: "rgb(46, 125, 50)",
-  email: "cskg.tiemhommie@gmail.com",
-  backgroundColor: "#F6F9FC",
+  email: "cskg.kennybookstore@gmail.com",
+  backgroundColor: "white",
   address: "46/37C Nhiêu Tứ, Phường 07, Quận Phú Nhuận, Hồ Chí Minh"
 };
 
