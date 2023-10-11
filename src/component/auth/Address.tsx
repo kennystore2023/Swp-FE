@@ -8,17 +8,17 @@ export default function Address({ setAddress }: any) {
     const [districtOption, setDistrictOption] = useState<any>(null)
     const [ward, setWard] = useState<any>(null)
     const [wardOption, setWardOption] = useState<any>(null)
-
     useEffect(() => {
         const getCityOption = async () => {
-            const response = await fetch("https://vn-public-apis.fpo.vn/provinces/getAll?limit=-1")
+            const response = await fetch("https://provinces.open-api.vn/api/?depth=1")
             const cities = await response.json()
-            setCityOption(cities.data.data)
+            setCityOption(cities)
         }
         const getDistrictOption = async (code: any) => {
-            const response = await fetch(`https://vn-public-apis.fpo.vn/districts/getByProvince?provinceCode=${code}&limit=-1`)
-            const districts = await response.json()
-            setDistrictOption(districts.data.data)
+            const response = await fetch(`https://provinces.open-api.vn/api/?depth=2`)
+            const cities: any[] = await response.json()
+            const districts = cities.find(value => value.code === city.code).districts
+            setDistrictOption(districts)
         }
         cityOption === null ? getCityOption() : null;
         city !== null ? getDistrictOption(city.code) : null;
@@ -26,9 +26,11 @@ export default function Address({ setAddress }: any) {
     }, [city])
     useEffect(() => {
         const getWardOption = async (code: any) => {
-            const response = await fetch(`https://vn-public-apis.fpo.vn/wards/getByDistrict?districtCode=${code}&limit=-1`)
-            const wards = await response.json()
-            setWardOption(wards.data.data)
+            const response = await fetch(`https://provinces.open-api.vn/api/?depth=3`)
+            const cities: any[] = await response.json()
+            const districts: any[] = cities.find(value => value.code === city.code).districts
+            const wards = districts.find(value => value.code = district.code).wards
+            setWardOption(wards)
         }
         district !== null ? getWardOption(district.code) : null;
     }, [district])
